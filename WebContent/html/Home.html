@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<style>
+.tab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+}
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+}
+.tab button:hover {
+  background-color: #ddd;
+}
+.tab button.active {
+  background-color: #ccc;
+}
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+}
+</style>
+
+<script>
+function openCity(evt, cityName) {
+	  // Declare all variables
+	  var i, tabcontent, tablinks;
+
+	  // Get all elements with class="tabcontent" and hide them
+	  tabcontent = document.getElementsByClassName("tabcontent");
+	  for (i = 0; i < tabcontent.length; i++) {
+	    tabcontent[i].style.display = "none";
+	  }
+
+	  // Get all elements with class="tablinks" and remove the class "active"
+	  tablinks = document.getElementsByClassName("tablinks");
+	  for (i = 0; i < tablinks.length; i++) {
+	    tablinks[i].className = tablinks[i].className.replace(" active", "");
+	  }
+
+	  // Show the current tab, and add an "active" class to the button that opened the tab
+	  document.getElementById(cityName).style.display = "block";
+	  evt.currentTarget.className += " active";
+	} 
+</script>
+</head>
+<body>
+<div class="tab">
+  <button class="tablinks" onclick="openCity(event, 'aboutus')">About Us</button>
+  <button class="tablinks" onclick="openCity(event, 'contactus')">Contact Us</button>
+  <button class="tablinks" onclick="openCity(event, 'cef')">Course Enquiry Form</button>
+  <button class="tablinks" onclick="openCity(event, 'Login')">Login</button>
+</div>
+<!-- Tab content -->
+<div id="aboutus" class="tabcontent">
+  <h3>About Us</h3>
+  <p>London is the capital city of England.</p>
+</div>
+<div id="contactus" class="tabcontent">
+  <h3>Contact Us</h3>
+  <p>London is the capital city of England.</p>
+</div>
+
+<div id="cef" class="tabcontent">
+  <form id="enqForm" action="html/Register.jsp" method="post">
+
+<table id="reg" align="center" border="1">
+<tr>
+ <td>First Name</td>
+ <td><input type="text" name="fname"></td> 
+</tr>
+<tr>
+ <td>Last Name</td>
+ <td><input type="text" name="lname"></td> 
+</tr>
+
+<tr>
+ <td>Gender</td>
+ <td><input type="radio" name="gender" value="M" checked="true">Male
+     <input type="radio" name="gender" value="F">Female</td> 
+</tr>
+<tr>
+<td>Qualification</td>
+<td>
+<select name="qual">
+<option value="select">---SELECT---</option>
+ <option value="BTech">B.Tech</option>
+ <option value="MTech">M.Tech</option>
+ <option value="MCA">MCA</option>
+ <option value="MSC">MSC</option>
+</select>
+</td>
+</tr>
+<tr>
+<td>Timings</td>
+<td>
+<input type="checkbox" name="time"  value="morning">Morning(9AM to 12PM)
+<input type="checkbox" name="time"  value="afternoon">Afternoon(12PM to 4PM)
+<input type="checkbox" name="time"  value="evening">Evening(4PM to 7PM)
+</td>
+</tr>
+<tr>
+<td>Course</td>
+<td>
+<input type="checkbox" name="course" value="CLanguage">C-Language
+<input type="checkbox" name="course" value="Java">Java
+<input type="checkbox" name="course" value="html">HTML
+</td>
+</tr>
+<tr>
+ <td>Mobile</td>
+ <td><input type="text" name="mobile"></td> 
+</tr>
+<tr>
+ <td>Email</td>
+ <td><input type="text" name="email"></td> 
+</tr>
+<tr>
+ <td></td>
+ <td><input type="submit" value="Submit"></td> 
+</tr>
+
+
+</table>
+
+</form>
+  
+</div>
+
+<div id="Login" class="tabcontent">
+  <form action="html/Login.jsp" method="post">
+<table id="loginTable" border="1">
+<tr>
+<td>UserName</td>
+<td><input type="text" name="uname"></td>
+</tr>
+<tr>
+<td>Password</td>
+<td><input type="password" name="pass"></td>
+</tr>
+<tr>
+<td><input type="submit" value="Login"></td>
+<td><a href="forgotpass.jsp">Forgot Password</a> </td>
+</tr>
+
+
+</table>
+</form>
+
+  
+</div>
+
+
+</body>
+</html>
